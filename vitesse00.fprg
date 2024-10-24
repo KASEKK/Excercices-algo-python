@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="vitesse"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-23 04:53:24 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yMzsiMTE6Mzk6NDAgIjsyMDYw"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yMzsiMDQ6NTM6MjQgIjsyOzIxNjk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="amende" type="Integer" array="False" size=""/>
+            <declare name="vitesseVehicule" type="Integer" array="False" size=""/>
+            <output expression="&quot;A quelle vitesse rouliez-vous ?&quot;" newline="True"/>
+            <input variable="vitesseVehicule"/>
+            <declare name="vitesseAutorisee" type="Integer" array="False" size=""/>
+            <output expression="&quot;Quelle &#233;tait la vitesse autoris&#233;e ?&quot;" newline="True"/>
+            <input variable="vitesseAutorisee"/>
+            <declare name="excesVitesse" type="Integer" array="False" size=""/>
+            <declare name="exces0a30" type="Integer" array="False" size=""/>
+            <declare name="exces0a40" type="Integer" array="False" size=""/>
+            <declare name="agloExces30" type="String" array="False" size=""/>
+            <declare name="autreExces40" type="String" array="False" size=""/>
+            <declare name="decheance20a30" type="String" array="False" size=""/>
+            <declare name="decheance30" type="String" array="False" size=""/>
+            <declare name="decheance30a40" type="String" array="False" size=""/>
+            <declare name="decheance40" type="String" array="False" size=""/>
+            <declare name="retrait" type="String" array="False" size=""/>
+            <declare name="euroParKmhAglo" type="Integer" array="False" size=""/>
+            <declare name="euroParKmhAutre" type="Integer" array="False" size=""/>
+            <assign variable="excesVitesse" expression="vitesseVehicule - vitesseAutorisee"/>
+            <assign variable="exces0a30" expression="53"/>
+            <assign variable="exces0a40" expression="53"/>
+            <assign variable="agloExces30" expression="&quot;Montant : Tribunal entre 80 EUR et 4000 EUR&quot;"/>
+            <assign variable="autreExces40" expression="&quot;Montant : Tribunal entre 80 EUR et 4000 EUR&quot;"/>
+            <assign variable="decheance20a30" expression="&quot;D&#233;ch&#233;ance du droit de conduire : 8 jours &gt; 5 ans (possible)&quot;"/>
+            <assign variable="decheance30" expression="&quot;D&#233;ch&#233;ance du droit de conduire : 8 jours &gt; 5 ans (obligatoire)&quot;"/>
+            <assign variable="decheance30a40" expression="&quot;D&#233;ch&#233;ance du droit de conduire : 8 jours &gt; 5 ans (possible)&quot;"/>
+            <assign variable="decheance40" expression="&quot;D&#233;ch&#233;ance du droit de conduire : 8 jours &gt; 5 ans (obligatoire)&quot;"/>
+            <assign variable="retrait" expression="&quot;Retrait du permis de conduire : possible&quot;"/>
+            <assign variable="euroParKmhAglo" expression="(excesVitesse -10) * 11"/>
+            <assign variable="euroParKmhAutre" expression="(excesVitesse - 10) * 6"/>
+            <if expression="vitesseAutorisee &lt; vitesseVehicule">
+                <then>
+                    <if expression="vitesseAutorisee &gt; 50">
+                        <then>
+                            <output expression="&quot;Vous &#233;tiez hors aglom&#233;rations. Votre exc&#232;s de vitesse &#233;tait de : &quot; &amp; excesVitesse" newline="True"/>
+                            <if expression="excesVitesse &lt;= 10">
+                                <then>
+                                    <output expression="&quot;Le montant de votre amende sera de &quot; &amp; exces0a30" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="excesVitesse &lt;= 30">
+                                        <then>
+                                            <output expression="&quot;Le montant de votre amende sera de &quot; &amp; exces0a30 + euroParKmhAglo" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="excesVitesse &lt;= 40">
+                                                <then>
+                                                    <output expression="&quot;Le montant de votre amende sera de &quot; &amp; exces40 + euroParKmhAutre &amp; &quot;ainsi que les &#233;l&#233;ments suivants : &quot; &amp; decheance20a30 &amp; &quot;et&quot; &amp; retrait" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;Vous &#233;tiez dans une zone d'aglom&#233;ration. Votre exc&#232;s de vitesse &#233;tait de &quot; &amp; excesVitesse" newline="True"/>
+                            <if expression="excesVitesse &lt;= 10">
+                                <then>
+                                    <output expression="&quot;Le montant de votre amende sera de : &quot; &amp; exces0a30 &amp; &quot;EUR&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="excesVitesse &lt;= 20">
+                                        <then>
+                                            <output expression="&quot;Le montant de votre amende sera de &quot; &amp; exces0a30 + euroParKmhAglo &amp; &quot;ainsi que les &#233;l&#233;ments suivants : &quot; &amp; &quot;et&quot; &amp; retrait" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="excesVitesse &lt;= 30">
+                                                <then>
+                                                    <output expression="&quot;Le montant de votre amende sera de &quot; &amp; exces0a30 + euroParKmhAglo &amp; &quot;ainsi que les &#233;l&#233;ments suivants : &quot; &amp; decheance20a30 &amp; &quot;et&quot; &amp; retrait" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;Vous rouliez a plus que 30km/h. Dans ce cas voici ce que la loi pr&#233;voit : &quot;&#13;&#10;&amp; agloExces30&#13;&#10;&amp; decheance&#13;&#10;&amp; retrait" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;Felicitations vous n'aurez pas d'amende&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

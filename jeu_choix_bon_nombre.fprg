@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="multiplicateur_While"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-24 03:51:01 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDE6MzY6MzggIjsyMDY0"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDM6NTE6MDEgIjs2OzIxNjY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nbrUtilisateur" type="Integer" array="False" size=""/>
+            <output expression="&quot;Rentrer un nombre et d&#233;couvrez si vous avez gagn&#233; !&quot;" newline="True"/>
+            <input variable="nbrUtilisateur"/>
+            <while expression="nbrUtilisateur &lt; 1 or nbrUtilisateur &gt; 100">
+                <output expression="&quot;Le nombre n'est pas bon, retentez encore !&quot;" newline="True"/>
+                <input variable="nbrUtilisateur"/>
+            </while>
+            <output expression="&quot;F&#233;licitations, vous avez entr&#233; un bon nombre.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

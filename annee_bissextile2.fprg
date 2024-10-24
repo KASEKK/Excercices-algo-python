@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="annee_bissextile"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-24 11:47:48 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yMzsiMDk6MzI6MTcgIjsyMDY0"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMTE6NDc6NDggIjsyOzIxNzc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="annee" type="Integer" array="False" size=""/>
+            <declare name="calculAnnee4" type="Real" array="False" size=""/>
+            <declare name="calculAnnee100" type="Real" array="False" size=""/>
+            <declare name="calculAnnee400" type="Real" array="False" size=""/>
+            <output expression="&quot;Quelle ann&#233;e voulez-vous v&#233;rifier ? &quot;" newline="True"/>
+            <input variable="annee"/>
+            <assign variable="calculAnnee4" expression="annee % 4"/>
+            <assign variable="calculAnnee100" expression="annee % 100"/>
+            <assign variable="calculAnnee400" expression="annee % 400"/>
+            <if expression="annee % 4 = 0">
+                <then>
+                    <if expression="annee % 100 = 0">
+                        <then>
+                            <if expression="annee % 400 = 0">
+                                <then>
+                                    <output expression="&quot;L'ann&#233;e est bissextile&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;L'ann&#233;e n'est pas bissextile.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;L'ann&#233;e n'est pas bissextile.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;L'ann&#233;e n'est pas bissextile&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

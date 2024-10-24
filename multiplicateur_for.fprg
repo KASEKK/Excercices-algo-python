@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="multiplicateur_While"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-24 03:07:33 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDE6MzY6MzggIjsyMDY0"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDM6MDc6MzMgIjs0OzIxNzA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nbrUtilisateur" type="Integer" array="False" size=""/>
+            <output expression="&quot;Rentrer un nombre entier : &quot;" newline="True"/>
+            <input variable="nbrUtilisateur"/>
+            <declare name="multiplicateur" type="Integer" array="False" size=""/>
+            <assign variable="multiplicateur" expression="1"/>
+            <while expression="nbrUtilisateur &gt; 0">
+                <for variable="multiplicateur" start="1" end="10" direction="inc" step="1">
+                    <output expression="nbrUtilisateur &amp; &quot; * &quot; &amp; multiplicateur &amp; &quot; = &quot; &amp; nbrUtilisateur * multiplicateur" newline="True"/>
+                </for>
+            </while>
+            <output expression="&quot;Veuillez entrer un nombre positif et non nul.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
