@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="multiplicateur_While"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-25 12:00:55 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDE6MzY6MzggIjsyMDY0"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNTsiMTI6MDA6NTUgIjsxMDsyMjEz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="joueur1" type="Integer" array="False" size=""/>
+            <declare name="joueur2" type="Integer" array="False" size=""/>
+            <declare name="tentatives" type="Integer" array="False" size=""/>
+            <assign variable="tentatives" expression="1"/>
+            <output expression="&quot;Joueur 1, rentrez un nombre secret entre 1 et 100&quot;" newline="True"/>
+            <input variable="joueur1"/>
+            <while expression="joueur1 &lt; 1 or joueur1 &gt; 100">
+                <output expression="&quot;Le nombre n'est pas entre 1 et 100, retentez encore !&quot;" newline="True"/>
+                <input variable="joueur1"/>
+            </while>
+            <output expression="&quot;Joueur 2, essayez de deviner le num&#233;ro entre 1 et 100 du joueur 1 : &quot;" newline="True"/>
+            <input variable="joueur2"/>
+            <while expression="joueur2 &lt; joueur1 or joueur2 &gt; joueur1">
+                <assign variable="tentatives" expression="tentatives + 1"/>
+                <if expression="joueur2 &gt; joueur1">
+                    <then>
+                        <output expression="&quot;Votre nombre est plus grand que celui du joueur1. Retentez encore !&quot;" newline="True"/>
+                        <input variable="joueur2"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Votre nombre est plus petit que celui du joueur1. Retentez encore !&quot;" newline="True"/>
+                        <input variable="joueur2"/>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;Vous avez trouv&#233; le bon nombre en &quot; &amp; tentatives &amp; &quot; fois !&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
