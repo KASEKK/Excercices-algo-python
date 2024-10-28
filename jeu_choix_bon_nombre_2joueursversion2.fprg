@@ -4,92 +4,96 @@
         <attribute name="name" value="multiplicateur_While"/>
         <attribute name="authors" value="Sergi"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-10-25 04:39:22 "/>
+        <attribute name="saved" value="2024-10-28 09:31:04 "/>
         <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNDsiMDE6MzY6MzggIjsyMDY0"/>
-        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yNTsiMDQ6Mzk6MjIgIjsxMjsyMjIy"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0yODsiMDk6MzE6MDQgIjsxNDsyMjI0"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
             <declare name="manchesGagnantes" type="Integer" array="False" size=""/>
             <declare name="nomJoueur1" type="String" array="False" size=""/>
-            <output expression="&quot;Indiquez votre pr&#233;nom : &quot;" newline="True"/>
+            <output expression="&quot;Joueur 1 indiquez votre pr&#233;nom : &quot;" newline="True"/>
             <input variable="nomJoueur1"/>
             <declare name="nomJoueur2" type="String" array="False" size=""/>
-            <output expression="&quot;Indiquez votre pr&#233;nom : &quot;" newline="True"/>
+            <output expression="&quot;Joueur 2 indiquez votre pr&#233;nom : &quot;" newline="True"/>
             <input variable="nomJoueur2"/>
-            <declare name="nbr1a100" type="Integer" array="False" size=""/>
-            <declare name="joueurActif" type="Integer" array="False" size=""/>
+            <declare name="nbrProposeur" type="Integer" array="False" size=""/>
+            <declare name="nbrDevineur" type="Integer" array="False" size=""/>
             <declare name="victoires1" type="Integer" array="False" size=""/>
             <declare name="victoires2" type="Integer" array="False" size=""/>
             <assign variable="victoires1" expression="0"/>
             <assign variable="victoires2" expression="0"/>
             <declare name="tentatives" type="Integer" array="False" size=""/>
             <declare name="i" type="Integer" array="False" size=""/>
-            <output expression="&quot;En combien de manches la partie sera gagn&#233;e ? : &quot;" newline="True"/>
+            <output expression="&quot;En combien de manches gagnantes la partie sera gagn&#233;e ? : &quot;" newline="True"/>
             <input variable="manchesGagnantes"/>
+            <comment text="1&#232;re boucle : NOMBRE DE MANCHES GAGNANTES"/>
             <for variable="i" start="1" end="manchesGagnantes" direction="inc" step="1">
                 <output expression="nomJoueur1 &amp; &quot; rentrez un nombre secret entre 1 et 100 : &quot;" newline="True"/>
-                <input variable="nbr1a100"/>
-                <while expression="nbr1a100 &lt; 1 or nbr1a100 &gt; 100">
+                <input variable="nbrProposeur"/>
+                <comment text="2&#232;me boucle : VERIFIER QUE LE NOMBRE A FAIRE DEVINER EST ENTRE 1 ET 100"/>
+                <while expression="nbrProposeur &lt; 1 or nbrProposeur &gt; 100">
                     <output expression="&quot;Le nombre n'est pas entre 1 et 100, retentez encore !&quot;" newline="True"/>
-                    <input variable="nbr1a100"/>
+                    <input variable="nbrProposeur"/>
                 </while>
                 <assign variable="tentatives" expression="1"/>
                 <output expression="nomJoueur2 &amp; &quot; essayez de deviner le num&#233;ro entre 1 et 100. C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                <input variable="joueurActif"/>
-                <while expression="joueurActif &lt; nbr1a100 or joueurActif &gt; nbr1a100 and tentatives &lt; 3">
+                <input variable="nbrDevineur"/>
+                <comment text="3eme boucle : VERIFIER SI LE NOMBRE DU DEVINEUR EST PLUS GRAND OU PLUS PETIT QUE LE NOMBRE DU PROPOSEUR + COMPTE DES TENTATIVES"/>
+                <while expression="(nbrDevineur &lt; nbrProposeur or nbrDevineur &gt; nbrProposeur) and tentatives &lt; 3">
                     <assign variable="tentatives" expression="tentatives + 1"/>
-                    <if expression="joueurActif &gt; nbr1a100">
+                    <if expression="nbrDevineur &gt; nbrProposeur">
                         <then>
                             <output expression="&quot;Votre nombre est plus grand que celui que vous devez deviner. Retentez encore ! C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                            <input variable="joueurActif"/>
+                            <input variable="nbrDevineur"/>
                         </then>
                         <else>
                             <output expression="&quot;Votre nombre est plus petit que celui que vous devez deviner. Retentez encore ! C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                            <input variable="joueurActif"/>
+                            <input variable="nbrDevineur"/>
                         </else>
                     </if>
                 </while>
-                <if expression="joueurActif == nbr1a100">
+                <if expression="nbrDevineur == nbrProposeur">
                     <then>
                         <output expression="nomJoueur2 &amp; &quot; vous avez gagn&#233; votre partie de la manche &quot; &amp; i" newline="True"/>
                         <assign variable="victoires2" expression="victoires2 + 1"/>
                     </then>
                     <else>
-                        <output expression="nomJoueur1 &amp; &quot; vous avez perdu votre partie de la manche &quot; &amp; i" newline="True"/>
+                        <output expression="nomJoueur2 &amp; &quot; vous avez perdu votre partie de la manche &quot; &amp; i" newline="True"/>
                         <assign variable="victoires1" expression="victoires1 + 1"/>
                     </else>
                 </if>
+                <comment text="IDEM JOUEUR 2"/>
                 <output expression="nomJoueur2 &amp; &quot; rentrez un nombre secret entre 1 et 100 : &quot;" newline="True"/>
-                <input variable="nbr1a100"/>
-                <while expression="nbr1a100 &lt; 1 or nbr1a100 &gt; 100">
+                <input variable="nbrProposeur"/>
+                <while expression="nbrProposeur &lt; 1 or nbrProposeur &gt; 100">
                     <output expression="&quot;Le nombre n'est pas entre 1 et 100, retentez encore !&quot;" newline="True"/>
-                    <input variable="nbr1a100"/>
+                    <input variable="nbrProposeur"/>
                 </while>
                 <assign variable="tentatives" expression="1"/>
                 <output expression="nomJoueur1 &amp; &quot; essayez de deviner le num&#233;ro entre 1 et 100. C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                <input variable="joueurActif"/>
-                <while expression="joueurActif &lt; nbr1a100 or joueurActif &gt; nbr1a100 and tentatives &lt; 3">
+                <input variable="nbrDevineur"/>
+                <while expression="(nbrDevineur &lt; nbrProposeur or nbrDevineur &gt; nbrProposeur) and tentatives &lt; 3">
                     <assign variable="tentatives" expression="tentatives + 1"/>
-                    <if expression="joueurActif &gt; nbr1a100">
+                    <if expression="nbrDevineur &gt; nbrProposeur">
                         <then>
-                            <output expression="&quot;Votre nombre est plus petit que celui que vous devez deviner. Retentez encore ! C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                            <input variable="joueurActif"/>
+                            <output expression="&quot;Votre nombre est plus grand que celui que vous devez deviner. Retentez encore ! C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
+                            <input variable="nbrDevineur"/>
                         </then>
                         <else>
                             <output expression="&quot;Votre nombre est plus petit que celui que vous devez deviner. Retentez encore ! C'est votre tentative : &quot; &amp; tentatives" newline="True"/>
-                            <input variable="joueurActif"/>
+                            <input variable="nbrDevineur"/>
                         </else>
                     </if>
                 </while>
-                <if expression="joueurActif == nbr1a100">
+                <if expression="nbrDevineur == nbrProposeur">
                     <then>
                         <output expression="nomJoueur1 &amp; &quot; vous avez gagn&#233; votre partie de la manche &quot; &amp; i" newline="True"/>
                         <assign variable="victoires1" expression="victoires1 + 1"/>
                     </then>
                     <else>
-                        <output expression="nomJoueur2 &amp; &quot; vous avez perdu votre partie de la manche &quot; &amp; i" newline="True"/>
+                        <output expression="nomJoueur1 &amp; &quot; vous avez perdu votre partie de la manche &quot; &amp; i" newline="True"/>
                         <assign variable="victoires2" expression="victoires2 + 1"/>
                     </else>
                 </if>
