@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tableau 2 dimmensions algo produits"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-30 02:14:59 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0zMDsiMDE6MTM6MjQgIjsyMDUx"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0zMDsiMDI6MTQ6NTkgIjsyOzIxNzA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="nomProduits" type="String" array="True" size="3"/>
+            <declare name="prixProduits" type="Real" array="True" size="3"/>
+            <assign variable="nomProduits[0]" expression="&quot;banane&quot;"/>
+            <assign variable="nomProduits[1]" expression="&quot;pomme&quot;"/>
+            <assign variable="nomProduits[2]" expression="&quot;orange&quot;"/>
+            <assign variable="prixProduits[0]" expression="2"/>
+            <assign variable="prixProduits[1]" expression="3"/>
+            <assign variable="prixProduits[2]" expression="5"/>
+            <for variable="i" start="0" end="2" direction="inc" step="1">
+                <output expression="nomProduits[i] &amp; &quot; &quot; &amp; prixProduits[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
