@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tableau fonction printE"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-05 02:47:41 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMC0zMTsiMDM6NDE6MDQgIjsyMDUz"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNTsiMDI6NDc6NDEgIjsyOzIxNzA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="tailleTableau" type="Integer" array="False" size=""/>
+            <output expression="&quot;Choisissez la taille de votre tableau : &quot;" newline="True"/>
+            <input variable="tailleTableau"/>
+            <comment text="D&#233;claration tableau"/>
+            <declare name="tableau" type="Integer" array="True" size="tailleTableau"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="tailleTableau -1" direction="inc" step="1">
+                <comment text="affecter une valeur a un element du tableau "/>
+                <assign variable="tableau[i]" expression="random(10)"/>
+            </for>
+            <output expression="&quot;Choisissez la taille de votre tableau : &quot;" newline="True"/>
+            <input variable="tailleTableau"/>
+            <declare name="tableau1" type="Integer" array="True" size="tailleTableau"/>
+            <for variable="i" start="0" end="tailleTableau -1" direction="inc" step="1">
+                <comment text="affecter une valeur a un element du tableau "/>
+                <assign variable="tableau1[i]" expression="random(10)"/>
+            </for>
+            <output expression="&quot;On va afficher le premier tableau : &quot;" newline="True"/>
+            <call expression="printE(tableau)"/>
+            <output expression="&quot;On va afficher le deuxi&#232;me tableau : &quot;" newline="True"/>
+            <call expression="printE(tableau1)"/>
+        </body>
+    </function>
+    <function name="printE" type="None" variable="">
+        <parameters>
+            <parameter name="tab" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <comment text="on utilise le compteur de la boucle comme indice de tableau. "/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="size(tab)-2" direction="inc" step="1">
+                <comment text="afficher chaque &#233;l&#233;ment du tableau et pas juste l'indice"/>
+                <output expression="tab[i] &amp; &quot;, &quot;" newline="False"/>
+            </for>
+            <output expression="tab[i]" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
