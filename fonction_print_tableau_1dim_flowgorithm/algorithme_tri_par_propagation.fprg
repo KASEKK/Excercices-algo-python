@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="algorithme_tri_par_propagation"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-06 02:25:38 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNTsiMDk6Mjc6MjkgIjsyMDcy"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNjsiMTE6NDY6MzUgIjsyO1NlcmdpO0tBU0VLOzIwMjQtMTAtMzE7IjAzOjQxOjA0ICI7dGFibGVhdSBmb25jdGlvbiBwcmludEUuZnByZzs3MTA5"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNjsiMDI6MjU6MzggIjsxOzIxNzI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="tailleTableau" type="Integer" array="False" size=""/>
+            <output expression="&quot;Quelle est la taille du tableau que vous voulez trier ? &quot;" newline="True"/>
+            <input variable="tailleTableau"/>
+            <declare name="tabE" type="Integer" array="True" size="tailleTableau"/>
+            <call expression="initTabE(tabE)"/>
+            <call expression="printE(tabE)"/>
+            <call expression="triTabE(tabE)"/>
+            <call expression="printE(tabE)"/>
+        </body>
+    </function>
+    <function name="initTabE" type="None" variable="">
+        <parameters>
+            <parameter name="tableau" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="size(tableau) -1" direction="inc" step="1">
+                <comment text="affecter une valeur a un element du tableau "/>
+                <assign variable="tableau[i]" expression="random(10)"/>
+            </for>
+        </body>
+    </function>
+    <function name="printE" type="None" variable="">
+        <parameters>
+            <parameter name="tab" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <comment text="on utilise le compteur de la boucle comme indice de tableau. "/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="size(tab)-2" direction="inc" step="1">
+                <comment text="afficher chaque &#233;l&#233;ment du tableau et pas juste l'indice"/>
+                <output expression="tab[i] &amp; &quot;, &quot;" newline="False"/>
+            </for>
+            <output expression="tab[i]" newline="True"/>
+        </body>
+    </function>
+    <function name="triTabE" type="None" variable="">
+        <parameters>
+            <parameter name="tableauATrier" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <declare name="modif" type="Boolean" array="False" size=""/>
+            <assign variable="modif" expression="True"/>
+            <while expression="modif">
+                <assign variable="modif" expression="False"/>
+                <assign variable="i" expression="0"/>
+                <while expression="i&lt;size(tableauATrier)-1">
+                    <if expression="tableauATrier[i]&gt;tableauATrier[i+1]">
+                        <then>
+                            <assign variable="temp" expression="tableauATrier[i]"/>
+                            <assign variable="tableauATrier[i]" expression="tableauATrier[i+1]"/>
+                            <assign variable="tableauATrier[i+1]" expression="temp"/>
+                            <assign variable="modif" expression="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="i" expression="i+1"/>
+                </while>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
