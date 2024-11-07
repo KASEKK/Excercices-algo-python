@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="caisse"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-07 05:38:29 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNzsiMDI6NTg6MjUgIjsyMDY3"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNzsiMDQ6MDY6MzggIjsxO1NlcmdpO0tBU0VLOzIwMjQtMTAtMjQ7IjAxOjM2OjM4ICI7amV1X2Nob2l4X2Jvbl9ub21icmUuZnByZzs2OTQz"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNzsiMDU6Mzg6MjkgIjsyOzIxODE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="chiffreAffaire" type="Integer" array="False" size=""/>
+            <assign variable="chiffreAffaire" expression="0"/>
+            <declare name="reponse" type="String" array="False" size=""/>
+            <declare name="nombreClients" type="Integer" array="False" size=""/>
+            <assign variable="nombreClients" expression="0"/>
+            <declare name="nomsProduits" type="String" array="True" size="11"/>
+            <declare name="prixProduits" type="Real" array="True" size="11"/>
+            <assign variable="nomsProduits[0]" expression="&quot;0&quot;"/>
+            <assign variable="prixProduits[0]" expression="0"/>
+            <assign variable="nomsProduits[1]" expression="&quot;banane&quot;"/>
+            <assign variable="prixProduits[1]" expression="1"/>
+            <assign variable="nomsProduits[2]" expression="&quot;pomme&quot;"/>
+            <assign variable="prixProduits[2]" expression="2"/>
+            <assign variable="nomsProduits[3]" expression="&quot;orange&quot;"/>
+            <assign variable="prixProduits[3]" expression="1"/>
+            <assign variable="nomsProduits[4]" expression="&quot;abricot&quot;"/>
+            <assign variable="prixProduits[4]" expression="2"/>
+            <assign variable="nomsProduits[5]" expression="&quot;avocat&quot;"/>
+            <assign variable="prixProduits[5]" expression="2"/>
+            <assign variable="nomsProduits[6]" expression="&quot;ananas&quot;"/>
+            <assign variable="prixProduits[6]" expression="4"/>
+            <assign variable="nomsProduits[7]" expression="&quot;kiwi&quot;"/>
+            <assign variable="prixProduits[7]" expression="2"/>
+            <assign variable="nomsProduits[8]" expression="&quot;melon&quot;"/>
+            <assign variable="prixProduits[8]" expression="5"/>
+            <assign variable="nomsProduits[9]" expression="&quot;citron&quot;"/>
+            <assign variable="prixProduits[9]" expression="1"/>
+            <assign variable="nomsProduits[10]" expression="&quot;peche&quot;"/>
+            <assign variable="prixProduits[10]" expression="2"/>
+            <declare name="finJournee" type="Boolean" array="False" size=""/>
+            <assign variable="finJournee" expression="True"/>
+            <while expression="finJournee">
+                <assign variable="nombreClients" expression="nombreClients+1"/>
+                <assign variable="chiffreAffaire" expression="chiffreAffaire+ticket(prixProduits, nomsProduits)"/>
+                <output expression="&quot;Est ce la fin de journ&#233;e ? oui ou non &quot;" newline="True"/>
+                <input variable="reponse"/>
+                <if expression="reponse = &quot;oui&quot;">
+                    <then>
+                        <assign variable="finJournee" expression="False"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <output expression="&quot;Le nombre de clients est de : &quot; &amp; nombreClients" newline="True"/>
+            <output expression="&quot;Le CA est de : &quot; &amp; chiffreAffaire" newline="True"/>
+        </body>
+    </function>
+    <function name="paiement" type="Real" variable="paiement">
+        <parameters>
+            <parameter name="(total)" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="paiement" type="Real" array="False" size=""/>
+            <declare name="restant" type="Real" array="False" size=""/>
+            <output expression="&quot;Le total est de &quot; &amp; total &amp; &quot; euros. Quel montant donnez-vous pour r&#233;gler ?&quot;" newline="True"/>
+            <input variable="paiement"/>
+            <assign variable="restant" expression="total-paiement"/>
+            <if expression="restant &gt; 0 or">
+                <then/>
+                <else/>
+            </if>
+        </body>
+    </function>
+    <function name="ticket" type="Real" variable="total">
+        <parameters>
+            <parameter name="tabPrix" type="Real" array="True"/>
+            <parameter name="tabProd" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="total" type="Real" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="reponse" type="String" array="False" size=""/>
+            <declare name="ceSeraTout" type="Boolean" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <assign variable="ceSeraTout" expression="True"/>
+            <while expression="ceSeraTout">
+                <output expression="&quot;Quelle est la r&#233;f&#233;rence de votre produit ? &quot;" newline="True"/>
+                <input variable="i"/>
+                <while expression="i &lt; 1 or i &gt; 11">
+                    <output expression="&quot;Votre r&#233;f&#233;rence n'est pas bonne, retentez encore !&quot;" newline="True"/>
+                    <input variable="i"/>
+                </while>
+                <output expression="&quot;Vous avez choisi le produit &quot; &amp; tabProd[i]  &amp; &quot; au prix de &quot; &amp; tabPrix[i] &amp; &quot; euros&quot;" newline="True"/>
+                <assign variable="total" expression="total+tabPrix[i]"/>
+                <output expression="&quot;Ce sera tout ? oui ou non &quot;" newline="True"/>
+                <input variable="reponse"/>
+                <if expression="reponse = &quot;oui&quot;">
+                    <then>
+                        <assign variable="ceSeraTout" expression="False"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <call expression="paiement(total)"/>
+        </body>
+    </function>
+</flowgorithm>
