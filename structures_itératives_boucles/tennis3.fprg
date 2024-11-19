@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tennis3"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-18 02:39:56 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMDE6MTI6NTYgIjsyMDYy"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMDI6Mzk6NTYgIjsxOzIxODA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pret" type="Boolean" array="False" size=""/>
+            <declare name="nbrBalles" type="Integer" array="False" size=""/>
+            <declare name="encore" type="Boolean" array="False" size=""/>
+            <do expression="nbrBalles&lt;=0">
+                <output expression="&quot;Combien de balles ?&quot;" newline="True"/>
+                <input variable="nbrBalles"/>
+                <while expression="nbrBalles &gt; 0">
+                    <output expression="&quot;Etes-vous pret ? vrai - faux&quot;" newline="True"/>
+                    <input variable="pret"/>
+                    <while expression="pret=true">
+                        <output expression="&quot;Lancez votre balle !&quot;" newline="True"/>
+                        <assign variable="nbrBalles" expression="nbrBalles-1"/>
+                    </while>
+                </while>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

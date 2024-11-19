@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="fibonacci"/>
+        <attribute name="authors" value="s.kosecki"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-19 11:32:07 "/>
+        <attribute name="created" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjExOjAwOjQxICI7Mjc5Ng=="/>
+        <attribute name="edited" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjExOjMyOjA3ICI7MTsyOTEx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nb1" type="Integer" array="False" size=""/>
+            <declare name="nb2" type="Integer" array="False" size=""/>
+            <assign variable="nb1" expression="0"/>
+            <assign variable="nb2" expression="1"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <declare name="nbrAffiche" type="Integer" array="False" size=""/>
+            <assign variable="nbrAffiche" expression="0"/>
+            <output expression="nb1" newline="True"/>
+            <while expression="i&lt;=20">
+                <assign variable="nb1" expression="nb2"/>
+                <assign variable="nb2" expression="nbrAffiche"/>
+                <assign variable="nbrAffiche" expression="nb1+nb2"/>
+                <assign variable="i" expression="i+1"/>
+                <output expression="nbrAffiche" newline="True"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

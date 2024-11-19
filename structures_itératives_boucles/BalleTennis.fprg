@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="BalleTennis"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-18 11:36:04 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xNTsiMDM6NTI6MDIgIjsyMDU2"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMTE6MzY6MDQgIjsyOzIxNzE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pret, panierVide" type="Boolean" array="False" size=""/>
+            <assign variable="pret" expression="false"/>
+            <assign variable="panierVide" expression="true"/>
+            <while expression="pret &amp;&amp; !panierVide">
+                <output expression="&quot;Lancer balle&quot;" newline="True"/>
+            </while>
+            <if expression="!pret &amp;&amp; !panierVide">
+                <then>
+                    <output expression="&quot;Joueur pas pr&#234;t&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="panierVide &amp;&amp; pret">
+                        <then>
+                            <output expression="&quot;Panier vide&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Joueur pas pret et panier vide&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

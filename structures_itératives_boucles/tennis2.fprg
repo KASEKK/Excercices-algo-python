@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tennis2"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-18 01:12:54 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMTI6MDU6MjAgIjsyMDU3"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMTI6MTQ6NDYgIjsxO1NlcmdpO0tBU0VLOzIwMjQtMTEtMTU7IjAzOjUyOjAyICI7QmFsbGVUZW5uaXMuZnByZzs1OTI5"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMDE6MTI6NTQgIjsxOzIxNjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pret" type="Boolean" array="False" size=""/>
+            <declare name="nbrBalles" type="Integer" array="False" size=""/>
+            <declare name="panierVide" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Vous &#234;tes pr&#234;t : vrai / faux&quot;" newline="True"/>
+            <input variable="pret"/>
+            <output expression="&quot;Combien il reste de balles ?&quot;" newline="True"/>
+            <input variable="nbrBalles"/>
+            <if expression="nbrBalles &gt; 0">
+                <then>
+                    <while expression="panierVide = true &amp;&amp; pret = false">
+                        <if expression="!pret &amp;&amp; !panierVide">
+                            <then>
+                                <output expression="&quot;Joueur pas pr&#234;t&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <if expression="panierVide &amp;&amp; pret">
+                                    <then>
+                                        <output expression="&quot;Panier vide&quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Joueur pas pret et panier vide&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </while>
+                    <output expression="&quot;Vous pouvez jouer&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

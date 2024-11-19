@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="mdp"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-18 02:49:36 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMDI6NDA6MDAgIjsyMDUz"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xODsiMDI6NDk6MzYgIjsxOzIxNzk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mdpInitial" type="String" array="False" size=""/>
+            <declare name="mdpUser" type="String" array="False" size=""/>
+            <assign variable="mdpUser" expression="&quot;&quot;"/>
+            <assign variable="mdpInitial" expression="&quot;lol44&quot;"/>
+            <declare name="nbrEssais" type="Integer" array="False" size=""/>
+            <assign variable="nbrEssais" expression="3"/>
+            <while expression="mdpUser != mdpInitial &amp;&amp; nbrEssais &gt; 0">
+                <output expression="&quot;Encodez votre MDP : &quot;" newline="True"/>
+                <input variable="mdpUser"/>
+                <if expression="mdpUser != mdpInitial">
+                    <then>
+                        <output expression="&quot;Votre mot de passe est incorrect&quot;" newline="True"/>
+                        <assign variable="nbrEssais" expression="nbrEssais - 1"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;gg&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

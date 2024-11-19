@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="calculatrice"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-15 03:51:08 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xNTsiMDI6NTg6MjAgIjsyMDYx"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xNTsiMDM6NTE6MDggIjsxOzIxNjk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nbr1" type="Real" array="False" size=""/>
+            <declare name="nbr2" type="Real" array="False" size=""/>
+            <declare name="operateur" type="String" array="False" size=""/>
+            <declare name="reponse" type="Real" array="False" size=""/>
+            <output expression="&quot;Nombre 1 : &quot;" newline="True"/>
+            <input variable="nbr1"/>
+            <output expression="&quot;Nombre 2 : &quot;" newline="True"/>
+            <input variable="nbr2"/>
+            <output expression="&quot;quel operateur ? choisissez entre /, *, +, -&quot;" newline="True"/>
+            <input variable="operateur"/>
+            <if expression="operateur = &quot;/&quot;">
+                <then>
+                    <assign variable="reponse" expression="nbr1/nbr2"/>
+                    <output expression="reponse" newline="True"/>
+                </then>
+                <else>
+                    <if expression="operateur = &quot;*&quot;">
+                        <then>
+                            <assign variable="reponse" expression="nbr1*nbr2"/>
+                            <output expression="reponse" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="operateur = &quot;-&quot;">
+                                <then>
+                                    <assign variable="reponse" expression="nbr1-nbr2"/>
+                                    <output expression="reponse" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="operateur = &quot;+&quot;">
+                                        <then>
+                                            <assign variable="reponse" expression="nbr1+nbr2"/>
+                                            <output expression="reponse" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;erreur&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

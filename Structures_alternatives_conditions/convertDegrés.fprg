@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="convertDegr&#233;s"/>
+        <attribute name="authors" value="s.kosecki"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-19 11:49:24 "/>
+        <attribute name="created" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjExOjM0OjA4ICI7MjgwNg=="/>
+        <attribute name="edited" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjExOjQ5OjI0ICI7MTsyOTE4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="result" type="Real" array="False" size=""/>
+            <assign variable="result" expression="0"/>
+            <declare name="tempUser" type="Real" array="False" size=""/>
+            <declare name="typeTemp" type="String" array="False" size=""/>
+            <output expression="&quot;Quelle temp&#233;rature voulez-vous convertir ?&quot;" newline="True"/>
+            <input variable="tempUser"/>
+            <output expression="&quot;Celsius ou fahrenheit ?&quot;" newline="True"/>
+            <input variable="typeTemp"/>
+            <if expression="typeTemp = &quot;celsius&quot;">
+                <then>
+                    <assign variable="result" expression="(tempUser*9/5)+32"/>
+                    <output expression="result" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="result" expression="((tempUser-32)*5)/9"/>
+                    <output expression="result" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -4,10 +4,10 @@
         <attribute name="name" value="caisse"/>
         <attribute name="authors" value="Sergi"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-11-08 04:08:22 "/>
+        <attribute name="saved" value="2024-11-12 10:49:34 "/>
         <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNzsiMDI6NTg6MjUgIjsyMDY3"/>
         <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wNzsiMDQ6MDY6MzggIjsxO1NlcmdpO0tBU0VLOzIwMjQtMTAtMjQ7IjAxOjM2OjM4ICI7amV1X2Nob2l4X2Jvbl9ub21icmUuZnByZzs2OTQz"/>
-        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0wODsiMDQ6MDg6MjIgIjszOzIxNzI="/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0xMjsiMTA6NDk6MzQgIjs0OzIxNzM="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -56,7 +56,7 @@
                 </if>
             </while>
             <output expression="&quot;Le nombre de clients est de : &quot; &amp; nombreClients" newline="True"/>
-            <output expression="&quot;Le CA est de : &quot; &amp; chiffreAffaire" newline="True"/>
+            <output expression="&quot;Le chiffre d'affaire est de : &quot; &amp; chiffreAffaire &amp; &quot; euros&quot;" newline="True"/>
         </body>
     </function>
     <function name="paiement" type="Real" variable="paiement">
@@ -70,7 +70,7 @@
             <input variable="paiement"/>
             <assign variable="restant" expression="total-paiement"/>
             <while expression="restant &gt; 0">
-                <output expression="&quot;Il vous reste &quot; &amp; restant &amp; &quot; &#224; payer. Quel montant donnez vous ?&quot;" newline="True"/>
+                <output expression="&quot;Il vous reste &quot; &amp; restant &amp; &quot; &#224; payer. Quel montant donnez-vous pour r&#233;gler ?&quot;" newline="True"/>
                 <input variable="paiement"/>
                 <assign variable="restant" expression="restant-paiement"/>
             </while>
@@ -91,24 +91,24 @@
         </parameters>
         <body>
             <declare name="total" type="Real" array="False" size=""/>
-            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="ref" type="Integer" array="False" size=""/>
             <declare name="reponse" type="String" array="False" size=""/>
             <declare name="ceSeraTout" type="Boolean" array="False" size=""/>
             <assign variable="total" expression="0"/>
             <assign variable="ceSeraTout" expression="True"/>
             <while expression="ceSeraTout">
                 <output expression="&quot;Quelle est la r&#233;f&#233;rence de votre produit ? &quot;" newline="True"/>
-                <input variable="i"/>
-                <while expression="i &lt; 1 or i &gt; 11">
+                <input variable="ref"/>
+                <while expression="ref &lt; 1 or ref &gt; 11">
                     <output expression="&quot;Votre r&#233;f&#233;rence n'est pas bonne, retentez encore !&quot;" newline="True"/>
-                    <input variable="i"/>
+                    <input variable="ref"/>
                 </while>
-                <output expression="&quot;Vous avez choisi le produit &quot; &amp; tabProd[i]  &amp; &quot; au prix de &quot; &amp; tabPrix[i] &amp; &quot; euros&quot;" newline="True"/>
-                <output expression="&quot;Confirmez vous votre produit ? oui ou non&quot;" newline="True"/>
+                <output expression="&quot;Vous avez choisi le produit &quot; &amp; tabProd[ref]  &amp; &quot; au prix de &quot; &amp; tabPrix[ref] &amp; &quot; euros&quot;" newline="True"/>
+                <output expression="&quot;Confirmez vous votre produit ? oui/non&quot;" newline="True"/>
                 <input variable="reponse"/>
                 <if expression="reponse = &quot;oui&quot;">
                     <then>
-                        <assign variable="total" expression="total+tabPrix[i]"/>
+                        <assign variable="total" expression="total+tabPrix[ref]"/>
                     </then>
                     <else>
                         <output expression="&quot;Le produit est annul&#233;.&quot;" newline="True"/>

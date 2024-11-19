@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="etoiles"/>
+        <attribute name="authors" value="s.kosecki"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-19 10:02:25 "/>
+        <attribute name="created" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjA5OjMzOjE1ICI7MjgxMA=="/>
+        <attribute name="edited" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjEwOjAyOjI1ICI7MTsyOTA3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nbr1" type="Integer" array="False" size=""/>
+            <declare name="nbr2" type="Integer" array="False" size=""/>
+            <declare name="etoile" type="String" array="False" size=""/>
+            <assign variable="etoile" expression="&quot;&quot;"/>
+            <assign variable="nbr2" expression="0"/>
+            <output expression="&quot;Quel est votre nombre ?&quot;" newline="True"/>
+            <input variable="nbr1"/>
+            <while expression="nbr2&lt;=nbr1">
+                <assign variable="nbr2" expression="nbr2+1"/>
+                <assign variable="etoile" expression="etoile &amp; &quot;*&quot;"/>
+                <output expression="etoile" newline="True"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
