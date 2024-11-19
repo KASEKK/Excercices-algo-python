@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="nombrePremiers"/>
+        <attribute name="authors" value="s.kosecki"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-19 04:39:53 "/>
+        <attribute name="created" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjAzOjMyOjMyICI7MjgwMg=="/>
+        <attribute name="edited" value="cy5rb3NlY2tpO0dPUy1WREkxMTA5OzIwMjQtMTEtMTk7IjA0OjM5OjUzICI7MTsyOTIx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="estPremier" type="Boolean" array="False" size=""/>
+            <declare name="nombre" type="Integer" array="False" size=""/>
+            <declare name="compteur" type="Integer" array="False" size=""/>
+            <assign variable="compteur" expression="0"/>
+            <assign variable="nombre" expression="2"/>
+            <declare name="diviseur" type="Integer" array="False" size=""/>
+            <while expression="compteur&lt;10">
+                <assign variable="estPremier" expression="true"/>
+                <assign variable="diviseur" expression="2"/>
+                <while expression="diviseur * diviseur &lt;= nombre AND estPremier">
+                    <assign variable="diviseur" expression="diviseur+1"/>
+                    <assign variable="compteur" expression="compteur +1"/>
+                    <output expression="compteur" newline="True"/>
+                    <assign variable="nombre" expression="nombre+1"/>
+                </while>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
