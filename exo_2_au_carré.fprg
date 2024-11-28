@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="exo"/>
+        <attribute name="authors" value="Sergi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-27 04:19:03 "/>
+        <attribute name="created" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0yNzsiMDE6NTY6MzkgIjsyMDcx"/>
+        <attribute name="edited" value="U2VyZ2k7S0FTRUs7MjAyNC0xMS0yNzsiMDQ6MTk6MDMgIjszOzIxNzQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="tab" type="Integer" array="True" size="10"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="tab[0]" expression="2"/>
+            <for variable="i" start="1" end="size(tab) -1" direction="inc" step="1">
+                <assign variable="tab[i]" expression="tab[i-1]*2"/>
+            </for>
+            <for variable="i" start="0" end="size(tab)-1" direction="inc" step="1">
+                <output expression="tab[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,18 @@
+
+Algorithme nomAlgo
+Variable tab : TABLEAU de Entier[10]
+Variable i : Entier 
+
+DEBUT
+tab[0] <- 2
+tab[1] <- tab[0]*2
+    POUR i DE 2 À size(tab) -1 PAR 1 FAIRE
+        tab[i] <- tab[i]*2
+    FINP
+
+i=0
+TANTQUE i<10 FAIRE
+    Ecrire(tab[i])
+FINTQ
+
+FIN
